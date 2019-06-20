@@ -1,0 +1,15 @@
+CREATE DATABASE practical;
+
+CREATE TABLE products (
+	id INT AUTO_INCREMENT NOT NULL,
+	name VARCHAR(200) NOT NULL,
+	price DECIMAL (10, 2) UNSIGNED NOT NULL,
+	term_length INT NOT NULL,
+	payment_interval ENUM ('Weekly', 'Monthly', 'Annually') NOT NULL);
+
+
+
+
+Random data to populate database...
+
+
