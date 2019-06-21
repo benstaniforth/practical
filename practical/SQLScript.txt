@@ -1,15 +1,44 @@
 CREATE DATABASE practical;
 
 CREATE TABLE products (
-	id INT AUTO_INCREMENT NOT NULL,
+	id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
 	name VARCHAR(200) NOT NULL,
 	price DECIMAL (10, 2) UNSIGNED NOT NULL,
 	term_length INT NOT NULL,
 	payment_interval ENUM ('Weekly', 'Monthly', 'Annually') NOT NULL);
 
 
+CREATE TABLE IN_PROCESS (
+	name VARCHAR(200) NOT NULL,
+    price DECIMAL (10, 2) UNSIGNED NOT NULL,
+    quantity INT NOT NULL,
+    term_length INT NOT NULL,
+    payment_interval ENUM ('Weekly', 'Monthly', 'Annually') NOT NULL,
+    total DECIMAL (10, 2) AS (price*quantity));
 
 
-Random data to populate database...
+CREATE TABLE IN_CHECKOUT (
+	name VARCHAR(200) NOT NULL,
+    price DECIMAL (10, 2) UNSIGNED NOT NULL,
+    quantity INT NOT NULL,
+    term_length INT NOT NULL,
+    payment_interval ENUM ('Weekly', 'Monthly', 'Annually') NOT NULL,
+    total DECIMAL (10, 2) AS (price*quantity));
 
+
+
+CREATE TABLE COMPLETED (
+	order_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    price DECIMAL (10, 2) UNSIGNED NOT NULL,
+    quantity INT NOT NULL,
+    term_length INT NOT NULL,
+    payment_interval ENUM ('Weekly', 'Monthly', 'Annually') NOT NULL,
+    total DECIMAL (10, 2) AS (price*quantity));
+
+    // TODO - maybe revisit and store/parse final values as Strings??
+
+
+Dummy data to populate products database...
+
+INSERT INTO products (name, price, quantity, term_length, payment_interval) VALUES ("WiFi","0.99","4","12","Monthly"),("Phone","399.99","4","3","Annually"),("Virus Protection","2.99","4","1","Annually"),("Photoshop","4.99","4","1","Annually"),("Coffee","5.99","4","4","Weekly"),("WhatCar","5.99","4","9","Monthly"),("Graze","5.99","4","12","Weekly"),("Hello Fresh","54.99","4","1","Annually"),("Harry's Razors","3.99","4","6","Monthly"),("BarkBox","2.99","4","12","Monthly"),("Instacart,","2.99","4","4","Weekly"),("Loot Crate","69.99","4","2","Annually"),("LinkedIn Premium","12.99","4","12","Monthly");
 

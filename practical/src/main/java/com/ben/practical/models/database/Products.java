@@ -12,8 +12,10 @@ public class Products {
 
     private String name;
     private BigDecimal price;
+    private int quantity;
     private int termLength;
     private String paymentInterval;
+    private BigDecimal total;
 
 
 }
