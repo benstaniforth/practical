@@ -27,14 +27,13 @@ public class ProductsService extends DatabaseService {
 
     public void addProductToInProcessBasket(Products products) {
         jdbi.useHandle(handle ->
-                handle.createUpdate("INSERT INTO IN_PROCESS (name, price, quantity, term_length, payment_interval, total) VALUES " +
-                        "(:name, :price, :quantity, :termLength, :paymentInterval, :total)")
+                handle.createUpdate("INSERT INTO IN_PROCESS (name, price, quantity, term_length, payment_interval) VALUES " +
+                        "(:name, :price, :quantity, :termLength, :paymentInterval)")
                         .bind("name", products.getName())
                         .bind("price", products.getPrice())
                         .bind("quantity", products.getQuantity())
                         .bind("termLength", products.getTermLength())
                         .bind("paymentInterval", products.getPaymentInterval())
-                        .bind("total", products.getTotal())
                         .execute()
         );
     }

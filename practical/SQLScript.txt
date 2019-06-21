@@ -29,13 +29,27 @@ CREATE TABLE IN_CHECKOUT (
 
 CREATE TABLE COMPLETED (
 	order_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    name VARCHAR(200) NOT NULL,
     price DECIMAL (10, 2) UNSIGNED NOT NULL,
     quantity INT NOT NULL,
     term_length INT NOT NULL,
     payment_interval ENUM ('Weekly', 'Monthly', 'Annually') NOT NULL,
-    total DECIMAL (10, 2) AS (price*quantity));
+    total DECIMAL (10, 2) UNSIGNED NOT NULL);
 
     // TODO - maybe revisit and store/parse final values as Strings??
+
+
+INSERT INTO IN_PROCESS (name, price, quantity, term_length, payment_interval)
+	SELECT name, price, quantity, term_length, payment_interval
+    FROM products
+    WHERE name="Product" (e.g. Phone);
+
+    // TODO - working in SQL, need to get a version of it working in "Java" for addToBasket method. Also currently only transfers entire quantity.
+
+
+INSERT INTO COMPLETED (name, price, quantity, term_length, payment_interval, total)
+	SELECT name, price, quantity, term_length, payment_interval, total
+    FROM IN_PROCESS
 
 
 Dummy data to populate products database...
