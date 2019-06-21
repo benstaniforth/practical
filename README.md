@@ -9,6 +9,8 @@ Items can be moved back and forth, deleted or altered between the basket and che
 
 Each item is bought on a subscription basis with distinct payment intervals - currently stated as Weekly, Monthly or Annually - and each have their own term length.
 
+I've included some dummy data and the table scripts in a .txt file as I only used mySQL on my laptop.
+
 
 Things yet to implement
 - Including some form of auth. This is something I have not done before so is something I need to research and attempt further in order to include it.
